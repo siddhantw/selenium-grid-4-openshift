@@ -1,0 +1,49 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: bus-sub
+  namespace: cicd
+  creationTimestamp: '2023-11-13T16:40:21Z'
+  labels:
+    app-name: selenium
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2023-11-13T16:40:21Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app-name': {}
+        'f:spec':
+          'f:internalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":4443,"protocol":"TCP"}':
+              .: {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+spec:
+  clusterIP: 192.168.245.232
+  ipFamilies:
+    - IPv4
+  ports:
+    - protocol: TCP
+      port: 4443
+      targetPort: 4443
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+    - 192.168.245.232
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: hub
+status:
+  loadBalancer: {}

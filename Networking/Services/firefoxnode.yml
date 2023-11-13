@@ -1,0 +1,62 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: firefoxnode
+  namespace: cicd
+  creationTimestamp: '2023-11-13T06:05:50Z'
+  labels:
+    io.kompose.service: firefoxnode
+  annotations:
+    kompose.cmd: kompose up --provider=openshift
+    kompose.version: 1.19.0 (f63a961c)
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2023-11-13T06:05:50Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kompose.cmd': {}
+            'f:kompose.version': {}
+          'f:labels':
+            .: {}
+            'f:io.kompose.service': {}
+        'f:spec':
+          'f:clusterIPs': {}
+          'f:sessionAffinity': {}
+          'f:clusterIP': {}
+          'f:type': {}
+          'f:ipFamilyPolicy': {}
+          'f:selector': {}
+          'f:ipFamilies': {}
+          'f:internalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":4577,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+spec:
+  clusterIP: 192.168.222.53
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: '4577'
+      protocol: TCP
+      port: 4577
+      targetPort: 4577
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+    - 192.168.222.53
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    io.kompose.service: firefoxnode
+status:
+  loadBalancer: {}

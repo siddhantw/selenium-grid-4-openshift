@@ -1,0 +1,82 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: hub
+  namespace: cicd
+  creationTimestamp: '2023-11-13T06:02:26Z'
+  labels:
+    io.kompose.service: hub
+  annotations:
+    kompose.cmd: kompose up --provider=openshift
+    kompose.version: 1.19.0 (f63a961c)
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2023-11-13T06:48:56Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kompose.cmd': {}
+            'f:kompose.version': {}
+          'f:labels':
+            .: {}
+            'f:io.kompose.service': {}
+        'f:spec':
+          'f:clusterIPs': {}
+          'f:sessionAffinity': {}
+          'f:clusterIP': {}
+          'f:type': {}
+          'f:ipFamilyPolicy': {}
+          'f:selector': {}
+          'f:ipFamilies': {}
+          'f:internalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":4442,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+            'k:{"port":4443,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+            'k:{"port":4446,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+spec:
+  clusterIP: 192.168.222.223
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: '4446'
+      protocol: TCP
+      port: 4446
+      targetPort: 4444
+    - name: '4443'
+      protocol: TCP
+      port: 4443
+      targetPort: 4443
+    - name: '4442'
+      protocol: TCP
+      port: 4442
+      targetPort: 4442
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+    - 192.168.222.223
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    io.kompose.service: hub
+status:
+  loadBalancer: {}

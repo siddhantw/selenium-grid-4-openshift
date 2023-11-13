@@ -1,0 +1,62 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: hub
+  namespace: cicd
+  creationTimestamp: '2023-11-13T06:08:16Z'
+  labels:
+    io.kompose.service: hub
+  annotations:
+    openshift.io/host.generated: 'true'
+  managedFields:
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2023-11-13T06:08:16Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+      subresource: status
+    - manager: Mozilla
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2023-11-13T18:53:20Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/host.generated': {}
+          'f:labels':
+            .: {}
+            'f:io.kompose.service': {}
+        'f:spec':
+          'f:host': {}
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+spec:
+  host: cicd-hub.apps.xyz.xyz.com
+  to:
+    kind: Service
+    name: hub
+    weight: 100
+  port:
+    targetPort: '4446'
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: cicd-hub.apps.xyz.xyz.com
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2023-11-13T06:08:16Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: router-default.apps.xyz.xyz.com

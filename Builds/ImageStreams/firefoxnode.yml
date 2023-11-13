@@ -1,0 +1,56 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/image.dockerRepositoryCheck: '2023-11-13T07:00:13Z'
+  name: firefoxnode
+  creationTimestamp: '2023-11-13T07:03:31Z'
+  generation: 1
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2023-11-13T07:00:12Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/image.dockerRepositoryCheck': {}
+          'f:labels':
+            .: {}
+            'f:io.kompose.service': {}
+        'f:spec':
+          'f:tags':
+            .: {}
+            'k:{"name":"119.0"}':
+              .: {}
+              'f:annotations': {}
+              'f:from': {}
+              'f:generation': {}
+              'f:importPolicy':
+                .: {}
+                'f:importMode': {}
+              'f:name': {}
+              'f:referencePolicy':
+                .: {}
+                'f:type': {}
+        'f:status':
+          'f:dockerImageRepository': {}
+  namespace: cicd
+  labels:
+    io.kompose.service: firefoxnode
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+    - name: latest
+      annotations: null
+      from:
+        kind: DockerImage
+        name: selenium/node-firefox
+      generation: 1
+      importPolicy:
+        importMode: Legacy
+      referencePolicy:
+        type: Source

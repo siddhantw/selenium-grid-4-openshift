@@ -1,0 +1,276 @@
+kind: DeploymentConfig
+apiVersion: apps.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/connects-to: >-
+      [{"apiVersion":"apps.openshift.io/v1","kind":"DeploymentConfig","name":"hub"}]
+    kompose.cmd: kompose up --provider=openshift
+    kompose.version: 1.19.0 (f63a961c)
+  name: chromenode
+  creationTimestamp: '2023-11-13T06:10:52Z'
+  generation: 74
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: apps.openshift.io/v1
+      time: '2023-11-13T08:08:40Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:app.openshift.io/connects-to': {}
+            'f:kompose.cmd': {}
+            'f:kompose.version': {}
+          'f:labels':
+            .: {}
+            'f:io.kompose.service': {}
+        'f:spec':
+          'f:replicas': {}
+          'f:revisionHistoryLimit': {}
+          'f:selector':
+            .: {}
+            'f:io.kompose.service': {}
+          'f:strategy':
+            'f:activeDeadlineSeconds': {}
+            'f:rollingParams':
+              .: {}
+              'f:intervalSeconds': {}
+              'f:maxSurge': {}
+              'f:maxUnavailable': {}
+              'f:timeoutSeconds': {}
+              'f:updatePeriodSeconds': {}
+            'f:type': {}
+          'f:template':
+            .: {}
+            'f:metadata':
+              .: {}
+              'f:creationTimestamp': {}
+              'f:labels':
+                .: {}
+                'f:io.kompose.service': {}
+            'f:spec':
+              .: {}
+              'f:containers':
+                .: {}
+                'k:{"name":"chromenode"}':
+                  .: {}
+                  'f:env':
+                    'k:{"name":"GRID_CLEAN_UP_CYCLE"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"SE_NODE_MAX_INSTANCES"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"SE_EVENT_BUS_HOST"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"SE_NODE_MAX_SESSIONS"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"SE_NODE_OVERRIDE_MAX_SESSIONS"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    .: {}
+                    'k:{"name":"HUB_PORT_4444_TCP_PORT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"JAVA_OPTS"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"SE_EVENT_BUS_PUBLISH_PORT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"SE_NODE_PORT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"GRID_BROWSER_TIMEOUT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"VNC_NO_PASSWORD"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"SE_EVENT_BUS_SUBSCRIBE_PORT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"SE_NODE_SESSION_TIMEOUT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"SE_NODE_HOST"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"HUB_PORT_4444_TCP_ADDR"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                  'f:imagePullPolicy': {}
+                  'f:name': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":4578,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:protocol': {}
+                  'f:resources':
+                    .: {}
+                    'f:limits':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                    'f:requests':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                  'f:terminationMessagePath': {}
+                  'f:terminationMessagePolicy': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:securityContext': {}
+              'f:terminationGracePeriodSeconds': {}
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: apps.openshift.io/v1
+      time: '2023-11-13T08:08:41Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:template':
+            'f:spec':
+              'f:containers':
+                'k:{"name":"chromenode"}':
+                  'f:image': {}
+          'f:triggers': {}
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: apps.openshift.io/v1
+      time: '2023-11-13T08:09:13Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:updatedReplicas': {}
+          'f:readyReplicas': {}
+          'f:conditions':
+            'k:{"type":"Available"}':
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:status': {}
+            'k:{"type":"Progressing"}':
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+          'f:details':
+            'f:causes': {}
+            'f:message': {}
+          'f:replicas': {}
+          'f:availableReplicas': {}
+          'f:observedGeneration': {}
+          'f:unavailableReplicas': {}
+          'f:latestVersion': {}
+      subresource: status
+  namespace: cicd
+  labels:
+    io.kompose.service: chromenode
+spec:
+  strategy:
+    type: Rolling
+    rollingParams:
+      updatePeriodSeconds: 1
+      intervalSeconds: 1
+      timeoutSeconds: 600
+      maxUnavailable: 25%
+      maxSurge: 25%
+    resources: {}
+    activeDeadlineSeconds: 21600
+  triggers:
+    - type: ImageChange
+      imageChangeParams:
+        automatic: true
+        containerNames:
+          - chromenode
+        from:
+          kind: ImageStreamTag
+          namespace: cicd
+          name: 'chromenode:latest'
+    - type: ConfigChange
+  replicas: 1
+  revisionHistoryLimit: 10
+  test: false
+  selector:
+    io.kompose.service: chromenode
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: chromenode
+    spec:
+      containers:
+        - name: chromenode
+          image: >-
+            selenium/node-chrome
+          ports:
+            - containerPort: 4578
+              protocol: TCP
+          env:
+            - name: SE_EVENT_BUS_HOST
+              value: hub
+            - name: SE_EVENT_BUS_PUBLISH_PORT
+              value: '4442'
+            - name: SE_EVENT_BUS_SUBSCRIBE_PORT
+              value: '4443'
+            - name: HUB_PORT_4444_TCP_ADDR
+              value: hub.cicd.svc
+            - name: HUB_PORT_4444_TCP_PORT
+              value: '4446'
+            - name: SE_NODE_MAX_INSTANCES
+              value: '10'
+            - name: SE_NODE_MAX_SESSIONS
+              value: '100'
+            - name: GRID_BROWSER_TIMEOUT
+              value: '900'
+            - name: GRID_CLEAN_UP_CYCLE
+              value: '600'
+            - name: SE_NODE_HOST
+              value: chromenode
+            - name: SE_NODE_PORT
+              value: '4578'
+            - name: SE_NODE_SESSION_TIMEOUT
+              value: '600'
+            - name: SE_NODE_OVERRIDE_MAX_SESSIONS
+              value: 'true'
+            - name: VNC_NO_PASSWORD
+              value: '1'
+            - name: JAVA_OPTS
+              value: '-Xmx4196m'
+          resources:
+            limits:
+              cpu: '20'
+              memory: 20Gi
+            requests:
+              cpu: '5'
+              memory: 8Gi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
